@@ -1,26 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
 
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+}
+
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #7453fc;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #7453fc;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: var(--font-roboto);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden
+}
+
+hr {
+
+  color: black;
+  background-color: rgba(109, 106, 106, 0.63);
+  opacity: 0.15;
+  width: 100%;
+}
+
+
+/* Tailwind classes */
+.nav-links {
+  @apply font-bold text-[0.80rem] text-[var(--bs-gray-800)] tracking-widest rounded-full duration-300 px-3.5 py-2.5 hover:text-white hover:bg-[var(--bs-purple)] cursor-pointer list-none
+}
+
+.market-nav-links {
+  @apply font-bold text-[0.80rem] text-white tracking-widest rounded-full duration-300 px-3.5 py-2.5 hover:text-white hover:bg-[var(--bs-purple)] cursor-pointer list-none
+}
+
+
+/* Hamburger */
+
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-bottom {
+  position: absolute;
+  width: 27px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background: var(--bs-purple);
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  position: absolute;
+  width: 34px;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background: var(--bs-purple);
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(9px);
+}
+
+.hamburger-bottom {
+  transform: translateY(18px);
+}
+
+.open {
+  transform: rotate(90deg);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
+
+
+.darkbg {
+  background-image: url('../assets/images/dark-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.explore-bg {
+  background-image: url('../assets/images/explore-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+.autoShow {
+  animation: autoShowAnimation both;
+  animation-timeline: view(70% 0%);
+}
+
+@keyframes autoShowAnimation {
+
+  from {
+    opacity: 0;
+    transform: translateY(0px) scale(0.3);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+.iconcolor {
+  color: #7453fc;
+}
+
+.arrowKeyTextHoverWhite:hover .iconcolor {
+  color: white;
+}
+
+
+.activeTab {
+  background: #7453fc !important;
+  color: white !important;
+}
+
+
+input,
+select {
+  height: 46px;
+  background-color: transparent;
+  font-size: 12px;
+  color: rgb(255, 255, 255);
+  outline: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.2);
+  border-image: initial;
+  border-radius: 23px;
+  padding: 0px 15px;
+}
+
+#contact input {
+  width: 100%;
+  height: 46px;
+  text-align: left;
+  padding: 0px 15px;
+  background-color: #282b2f;
+  border: 1px solid #404245;
+  margin-bottom: 30px;
+  font-weight: 500;
+  color: #afafaf;
 }
