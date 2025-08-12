@@ -73,7 +73,7 @@ const StickyHeader = () => {
 
     return (
         <header
-            className={`transition-all duration-300 ease-in-out z-50 px-6 py-4 shadow-lg bg-white ${isVisible ? 'opacity-100' : 'opacity-0'
+            className={`z-[100] transition-all duration-300 ease-in-out px-6 py-4 shadow-lg bg-white ${isVisible ? 'opacity-100' : 'opacity-0'
                 } ${isSticky
                     ? 'fixed top-0 left-0 right-0 rounded-none'
                     : 'fixed top-0 lg:top-[4%] left-0 lg:left-[15%] right-0 lg:right-[15%] lg:rounded-full'
